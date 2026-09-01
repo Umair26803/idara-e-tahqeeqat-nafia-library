@@ -28,6 +28,6 @@ jobs:
   path: '.'
   -name: Deploy website
   id: deployment
-  uses
+  uses:
   actions/deploy-pages@v4
       
