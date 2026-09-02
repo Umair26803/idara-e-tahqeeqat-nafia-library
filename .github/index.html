@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ادارۂ تحقیقاتِ نافعہ | AbdulHaq Nafi Academy</title>
+    <!-- Importing Amiri & Inter Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="logo-container">
+            <!-- Emblem / Seal Image -->
+            <div class="academy-seal">
+                <img src="logo.png" alt="AbdulHaq Nafi Academy Logo" class="seal-image">
+            </div>
+            <!-- Stacked Text Names with Kashida/Tatweel alignment -->
+            <div class="logo" dir="rtl">
+                <span class="logo-urdu">ادارۂـــ تحقيقاتِ نافعـة</span>
+                <span class="logo-english" dir="ltr">AbdulHaq Nafi Academy</span>
+            </div>
+        </div>
+        <nav class="navigation" aria-label="Main Navigation">
+            <a href="#" class="active">Dashboard</a>
+            <a href="#">Books</a>
+            <a href="#">Members</a>
+            <a href="#">Reports</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Welcome to Library Dashboard 👋</h1>
+            <p>Manage books, members, and borrowing from one modern platform.</p>
+            <button class="btn primary-btn" type="button">+ Add New Book</button>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats" aria-label="Library Statistics">
+            <div class="card">
+                <span aria-hidden="true">📚</span>
+                <p>Total Books</p>
+                <strong>2548</strong>
+            </div>
+            <div class="card">
+                <span aria-hidden="true">🟢</span>
+                <p>Available</p>
+                <strong>2106</strong>
+            </div>
+            <div class="card">
+                <span aria-hidden="true">📖</span>
+                <p>Borrowed</p>
+                <strong>386</strong>
+            </div>
+            <div class="card">
+                <span aria-hidden="true">⚠️</span>
+                <p>Overdue</p>
+                <strong>56</strong>
+            </div>
+        </section>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="search-box">
+                <input type="text" placeholder="Search books by title, author or ISBN ..." aria-label="Search books">
+                <button class="search-button" type="button">🔍 Search</button>
+            </div>
+        </section>
+
+        <!-- Recent Books Section -->
+        <section class="recent-books">
+            <div class="section-header">
+                <h2>Recently Added Books</h2>
+                <a href="#">View All →</a>
+            </div>
+            
+            <div class="book-grid">
+                <!-- Book 1 -->
+                <div class="book-card">
+                    <div class="book-cover" aria-hidden="true">📕</div>
+                    <h3>Atomic Habits</h3>
+                    <p>James Clear</p>
+                    <div class="book-meta">
+                        <p><strong>ISBN:</strong> 978-0735211292</p>
+                        <p><strong>Category:</strong> Self Development</p>
+                        <p><strong>Shelf:</strong> A-12</p>
+                    </div>
+                    <span class="status available">Available</span>
+                </div>
+
+                <!-- Book 2 -->
+                <div class="book-card">
+                    <div class="book-cover" aria-hidden="true">📘</div>
+                    <h3>The 7 Habits of Highly Effective People</h3>
+                    <p>Stephen Covey</p>
+                    <div class="book-meta">
+                        <p><strong>ISBN:</strong> 978-0671708638</p>
+                        <p><strong>Category:</strong> Self Development</p>
+                        <p><strong>Shelf:</strong> A-14</p>
+                    </div>
+                    <span class="status borrowed">Borrowed</span>
+                </div>
+
+                <!-- Book 3 -->
+                <div class="book-card">
+                    <div class="book-cover" aria-hidden="true">📗</div>
+                    <h3>The Power of Now</h3>
+                    <p>Eckhart Tolle</p>
+                    <div class="book-meta">
+                        <p><strong>ISBN:</strong> 978-1577314807</p>
+                        <p><strong>Category:</strong> Spirituality</p>
+                        <p><strong>Shelf:</strong> B-03</p>
+                    </div>
+                    <span class="status available">Available</span>
+                </div>
+
+                <!-- Book 4 -->
+                <div class="book-card">
+                    <div class="book-cover" aria-hidden="true">📙</div>
+                    <h3>Deep Work</h3>
+                    <p>Cal Newport</p>
+                    <div class="book-meta">
+                        <p><strong>ISBN:</strong> 978-1455586699</p>
+                        <p><strong>Category:</strong> Productivity</p>
+                        <p><strong>Shelf:</strong> C-01</p>
+                    </div>
+                    <span class="status overdue">Overdue</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- All Books & Filters Section -->
+        <section class="books-section">
+            <div class="books-header">
+                <div>
+                    <h2>All Books</h2>
+                    <p>Browse and manage books in the library.</p>
+                </div>
+                <button class="add-book-button" type="button">+ Add New Book</button>
+            </div>
+            
+            <div class="book-filters">
+                <div class="search-input">
+                    <span aria-hidden="true">🔍</span>
+                    <input type="text" placeholder="Search books by title, author or ISBN..." aria-label="Filter books">
+                </div>
+                <select class="filter-select" aria-label="Filter by Category">
+                    <option selected>All Categories</option>
+                    <option>Self Development</option>
+                    <option>Pharmacy</option>
+                    <option>Islamic Studies</option>
+                    <option>History</option>
+                </select>
+                <select class="filter-select" aria-label="Filter by Status">
+                    <option selected>All Status</option>
+                    <option>Available</option>
+                    <option>Borrowed</option>
+                    <option>Overdue</option>
+                </select>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
