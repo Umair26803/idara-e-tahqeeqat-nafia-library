@@ -4,8 +4,12 @@ const addBookButton = document.querySelector("#addBookButton");
 const bookMessage = document.querySelector("#bookMessage");
 const bookTitleInput = document.querySelector("#bookTitle");
 
-let bookTitle = "Atomic Habits";
-
 addBookButton.addEventListener("click", function() {
-    bookMessage.textContent = bookTitleInput.value;
+    addBookButton.addEventListener("click", function() {
+    
+        if (bookTitleInput.value !== "") {
+            bookMessage.textContent = bookTitleInput.value;
+        }
+    
+    });
 });
