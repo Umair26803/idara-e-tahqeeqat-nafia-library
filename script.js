@@ -2,7 +2,8 @@ console.log("Library website is running!");
 
 const addBookButton = document.querySelector("#addBookButton");
 const bookMessage = document.querySelector("#bookMessage");
+const bookTitleInput = document.querySelector("#bookTitle");
 
 addBookButton.addEventListener("click", function() {
-    bookMessage.textContent = "Ready to add a new book!";
+    bookMessage.textContent = bookTitleInput.value;
 });
