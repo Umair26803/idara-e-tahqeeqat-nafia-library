@@ -9,6 +9,8 @@ addBookButton.addEventListener("click", function() {
     
         if (bookTitleInput.value !== "") {
             bookMessage.textContent = bookTitleInput.value;
+        }else {
+            bookMessage.textContent = "Please enter a book title.";
         }
     
     });
