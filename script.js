@@ -4,8 +4,6 @@ let books = [
     "Atomic Habits",
     "The Alchemist",
     "Rich Dad Poor Dad",
-    "Deep Work",
-    "The Psychology of Money"
 ];
 
 const addBookButton = document.querySelector("#addBookButton");
