@@ -14,5 +14,4 @@ addBookButton.addEventListener("click", function() {
     } else {
         bookMessage.textContent = "Please enter a book title.";
     }
-
 });
