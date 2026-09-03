@@ -1,7 +1,6 @@
 console.log("Library website is running!");
 let books = ["Atomic Habits", "The Alchemist", "Rich Dad Poor Dad"];
 
-
 const addBookButton = document.querySelector("#addBookButton");
 const bookMessage = document.querySelector("#bookMessage");
 const bookTitleInput = document.querySelector("#bookTitle");
