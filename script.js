@@ -20,4 +20,8 @@ addBookButton.addEventListener("click", function() {
     }
 });
 const bookList = document.querySelector("#bookList");
-bookList.innerHTML = "<p>Atomic Habits</p>";
+bookList.innerHTML = "";
+
+for (let book of books) {
+    bookList.innerHTML += "<p>" + book + "</p>";
+}
