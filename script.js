@@ -19,3 +19,5 @@ addBookButton.addEventListener("click", function() {
         bookMessage.textContent = "Please enter a book title.";
     }
 });
+const bookList = document.querySelector("#bookList");
+bookList.innerHTML = "<p>Atomic Habits</p>";
