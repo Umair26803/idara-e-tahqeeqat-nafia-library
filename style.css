@@ -413,6 +413,13 @@ main {
     background: var(--badge-overdue-bg);
     color: var(--badge-overdue-color);
 }
+.dynamic-book {
+    padding: 12px;
+    margin-top: 10px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
 
 /* --- Responsive Media Queries --- */
 @media (max-width: 900px) {
