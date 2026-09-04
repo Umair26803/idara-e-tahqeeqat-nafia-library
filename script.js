@@ -16,7 +16,7 @@ function displayBooks() {
     bookList.innerHTML = "";
 
     for (let book of books) {
-    bookList.innerHTML += "<p>" + book + "</p>";
+        bookList.innerHTML += '<p class="dynamic-book">' + book + "</p>";
 }
 }
 displayBooks();
