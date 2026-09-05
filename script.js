@@ -21,7 +21,7 @@ function displayBooks() {
 displayBooks();
 
 addBookButton.addEventListener("click", function() {
-    if (bookTitleInput.value !== "") {
+    if (bookTitleInput.value.trim() !== "") {
         books.push(bookTitleInput.value);
         displayBooks();
         bookMessage.textContent = bookTitleInput.value + " added to library!";
