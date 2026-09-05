@@ -21,12 +21,15 @@ function displayBooks() {
 displayBooks();
 
 addBookButton.addEventListener("click", function() {
-    if (bookTitleInput.value.trim() !== "") {
-        books.push(bookTitleInput.value.trim());
+
+    let title = bookTitleInput.value.trim();
+
+    if (title !== "") {
+        books.push(title);
         displayBooks();
-        bookMessage.textContent = bookTitleInput.value + " added to library!";
+        bookMessage.textContent = title + " added to library!";
+
         bookTitleInput.value = "";
-        
     } else {
         bookMessage.textContent = "Please enter a book title.";
     }
