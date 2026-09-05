@@ -1,4 +1,7 @@
-:root {
+/* ==========================================
+   1. CSS VARIABLES & ROOT CONFIGURATION
+   ================================---------- */
+   :root {
     --primary: #111827;
     --primary-hover: #374151;
     --background: #f5f7fb;
@@ -14,11 +17,15 @@
     --badge-overdue-color: #b91c1c;
 }
 
+/* ==========================================
+   2. GLOBAL STYLES & RESET
+   ================================---------- */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+
 html {
     overflow-x: hidden;
 }
@@ -34,7 +41,7 @@ body {
     max-width: 100%;
 }
 
-/* --- Full Page Background Logo Watermark (Updated Visibility) --- */
+/* Full Page Background Logo Watermark */
 body::before {
     content: "";
     position: fixed;
@@ -45,12 +52,15 @@ body::before {
     background-image: url('logo.png');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 500px; 
-    opacity: 0.45; /* Adjusted from 0.30 to make it slightly more visible */
+    background-size: 500px;
+    opacity: 0.45;
     z-index: -1;
     pointer-events: none;
 }
 
+/* ==========================================
+   3. NAVIGATION BAR & LOGO
+   ================================---------- */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -65,7 +75,6 @@ body::before {
     gap: 16px;
 }
 
-/* --- Logo Container & Improved Uniform Alignment --- */
 .logo-container {
     display: flex;
     align-items: center;
@@ -87,15 +96,16 @@ body::before {
 .seal-image {
     width: 100%;
     height: 100%;
-    object-fit: contain; 
+    object-fit: contain;
 }
 
 .logo {
     display: flex;
     flex-direction: column;
-    align-items: stretch; /* Forces children to match the max width container boundary */
-    padding-top: 4px; 
+    align-items: stretch;
+    padding-top: 4px;
 }
+
 .logo-urdu {
     font-family: 'Amiri', serif;
     font-size: 24px;
@@ -135,6 +145,9 @@ body::before {
     color: var(--primary);
 }
 
+/* ==========================================
+   4. MAIN CONTENT & HERO SECTION
+   ================================---------- */
 main {
     max-width: 1200px;
     margin: auto;
@@ -188,6 +201,9 @@ main {
     color: white;
 }
 
+/* ==========================================
+   5. DASHBOARD STATS CARDS
+   ================================---------- */
 .stats {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -212,7 +228,9 @@ main {
     font-size: 26px;
 }
 
-/* --- Search Section Styles --- */
+/* ==========================================
+   6. SEARCH & FILTER SECTION
+   ================================---------- */
 .search-section {
     margin-top: 30px;
 }
@@ -254,7 +272,6 @@ main {
     background: var(--primary-hover);
 }
 
-/* --- Search Input Wrapper (Filters Section) --- */
 .search-input {
     flex: 1;
     display: flex;
@@ -297,6 +314,9 @@ main {
     border-color: var(--primary);
 }
 
+/* ==========================================
+   7. SECTIONS, HEADERS & BOOK GRID
+   ================================---------- */
 .section-header,
 .books-header {
     display: flex;
@@ -390,6 +410,9 @@ main {
     margin-top: 40px;
 }
 
+/* ==========================================
+   8. STATUS BADGES & DYNAMIC ELEMENTS
+   ================================---------- */
 .status {
     display: inline-block;
     margin-top: 10px;
@@ -413,6 +436,7 @@ main {
     background: var(--badge-overdue-bg);
     color: var(--badge-overdue-color);
 }
+
 .dynamic-book {
     padding: 12px;
     margin-top: 10px;
@@ -421,12 +445,15 @@ main {
     border-radius: 10px;
 }
 
-/* --- Responsive Media Queries --- */
+/* ==========================================
+   9. RESPONSIVE MEDIA QUERIES
+   ================================---------- */
 @media (max-width: 900px) {
     .stats,
     .book-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    
     body::before {
         background-size: min(70vw, 320px);
         opacity: 0.22;
@@ -441,16 +468,19 @@ main {
         min-height: unset;
         gap: 10px;
     }
+    
     .logo-container {
         width: 100%;
         gap: 10px;
         flex: none;
     }
+    
     .academy-seal {
         width: 48px;
         height: 48px;
         border-radius: 8px;
     }
+    
     .logo-urdu {
         font-size: 18px;
         white-space: nowrap;
@@ -459,12 +489,14 @@ main {
         text-align: start;
         text-align-last: start;
     }
+    
     .logo-english {
         font-size: 10px;
         letter-spacing: 0.4px;
         overflow: hidden;
         text-overflow: ellipsis;
     }
+    
     .navigation {
         width: 100%;
         gap: 0;
@@ -473,6 +505,7 @@ main {
         -webkit-overflow-scrolling: touch;
         padding-bottom: 2px;
     }
+    
     .navigation a {
         font-size: 13px;
         white-space: nowrap;
@@ -483,82 +516,103 @@ main {
         background: #f3f4f6;
         margin-right: 6px;
     }
+    
     .navigation a:last-child {
         margin-right: 0;
     }
+    
     .navigation a.active {
         background: var(--primary);
         color: #ffffff;
     }
+    
     main {
         padding: 20px 14px 32px;
     }
+    
     .hero {
         padding: 22px 18px;
         border-radius: 16px;
     }
+    
     .hero h1 {
         font-size: 24px;
         line-height: 1.25;
     }
+    
     .hero p {
         font-size: 14px;
         margin-bottom: 16px;
     }
+    
     .hero button,
     .add-book-button {
         width: 100%;
     }
+    
     .stats {
         gap: 10px;
         margin-top: 16px;
     }
+    
     .card {
         padding: 14px;
         border-radius: 14px;
     }
+    
     .card p {
         font-size: 12px;
         margin: 6px 0 2px 0;
     }
+    
     .card strong {
         font-size: 20px;
     }
+    
     .search-section,
     .recent-books {
         margin-top: 22px;
     }
+    
     .search-box {
         flex-direction: column;
         align-items: stretch;
     }
+    
     .search-box input,
     .search-button {
         width: 100%;
     }
+    
     .section-header,
     .books-header {
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
     }
+    
     .section-header h2,
     .books-header h2 {
         font-size: 20px;
     }
+    
     .book-grid {
         gap: 12px;
     }
+    
     .book-cover {
         height: 120px;
         font-size: 40px;
     }
+    
     .book-filters {
         flex-direction: column;
     }
+    
     .filter-select {
         width: 100%;
     }
+    
     .books-section {
         margin-top: 28px;
     }
@@ -566,20 +620,22 @@ main {
 
 @media (max-width: 480px) {
     .stats,
-     .book-grid {
-            grid-template-columns: 1fr 1fr;
-        }
-    .book-card {
-            padding: 12px;
-        }
-    .book-card h3 {
-            font-size: 14px;
-        }
+    .book-grid {
+        grid-template-columns: 1fr 1fr;
+    }
     
+    .book-card {
+        padding: 12px;
+    }
+    
+    .book-card h3 {
+        font-size: 14px;
+    }
     
     .search-box {
         flex-direction: column;
     }
+    
     .search-box input,
     .search-button {
         width: 100%;

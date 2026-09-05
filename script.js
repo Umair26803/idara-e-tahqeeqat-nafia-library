@@ -12,21 +12,21 @@ const bookTitleInput = document.querySelector("#bookTitle");
 const bookList = document.querySelector("#bookList");
 
 function displayBooks() {
-
     bookList.innerHTML = "";
 
     for (let book of books) {
         bookList.innerHTML += '<p class="dynamic-book">' + book + "</p>";
-}
+    }
 }
 displayBooks();
 
 addBookButton.addEventListener("click", function() {
-
     if (bookTitleInput.value !== "") {
         books.push(bookTitleInput.value);
         displayBooks();
         bookMessage.textContent = bookTitleInput.value + " added to library!";
+        bookTitleInput.value = "";
+        
     } else {
         bookMessage.textContent = "Please enter a book title.";
     }
