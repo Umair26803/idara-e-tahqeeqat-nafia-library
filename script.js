@@ -20,62 +20,19 @@ let books = [
     }
 ];
 
-let students = [
+let testLibrary = [
     {
-        name: "Ali",
-        age: 20
-    },
-
-    {
-        name: "Ahmed",
-        age: 22
+        title: "Book A",
+        author: "Author A"
     }
 ];
 
-console.log(students);
-console.log(students[0]);
-console.log(students[0].name);
+testLibrary.push({
+    title: "Book B",
+    author: "Author B"
+});
 
-let libraryBooks = [
-    {
-        title: "Deep Work",
-        author: "Cal Newport",
-        category: "Productivity"
-    },
-
-    {
-        title: "Atomic Habits",
-        author: "James Clear",
-        category: "Self Development"
-    },
-
-    {
-        title: "The Alchemist",
-        author: "Paulo Coelho",
-        category: "Fiction"
-    }
-];
-
-console.log(libraryBooks);
-console.log(libraryBooks[0].title);
-console.log(libraryBooks[1].author);
-
-let testBooks = [
-    {
-        title: "Deep Work",
-        author: "Cal Newport"
-    },
-
-    {
-        title: "Atomic Habits",
-        author: "James Clear"
-    }
-];
-
-console.log(testBooks);
-console.log(testBooks[0].title);
-console.log(testBooks[1].author);
-
+console.log(testLibrary);
 const addBookButton = document.querySelector("#addBookButton");
 const bookMessage = document.querySelector("#bookMessage");
 const bookTitleInput = document.querySelector("#bookTitle");
@@ -96,7 +53,11 @@ addBookButton.addEventListener("click", function() {
     let title = bookTitleInput.value.trim();
 
     if (title !== "") {
-        books.push(title);
+        books.push({
+            title: title,
+            author: "Unknown",
+            category: "Uncategorized"
+        });
         displayBooks();
         bookMessage.textContent = title + " added to library!";
 
