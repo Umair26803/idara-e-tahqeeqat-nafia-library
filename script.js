@@ -33,7 +33,8 @@ function displayBooks() {
     bookList.innerHTML = "";
 
     for (let book of books) {
-        bookList.innerHTML += '<p class="dynamic-book">' + book.title + "<br>" + book.author + "<br>" + book.category + "</p>";
+        let card = "<div><h3>" +book.title+ "</h3>"+"<p>" +book.author+ "</p>"+"<p>" +book.category+ "</p>"+"</div>";
+        bookList.innerHTML += card
     }
 }
 
