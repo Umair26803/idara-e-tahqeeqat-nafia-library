@@ -25,6 +25,7 @@ const bookMessage = document.querySelector("#bookMessage");
 const bookTitleInput = document.querySelector("#bookTitle");
 const bookList = document.querySelector("#bookList");
 const bookAuthorInput = document.querySelector("#bookAuthor");
+const bookCategoryInput = document.querySelector("#bookCategory");
 
 console.log(bookAuthorInput);
 
@@ -42,12 +43,13 @@ addBookButton.addEventListener("click", function() {
 
     let title = bookTitleInput.value.trim();
     let author = bookAuthorInput.value.trim();
+    let category = bookCategoryInput.value;
 
     if (title !== "") {
         books.push({
             title: title,
             author: author,
-            category: "Uncategorized"
+            category: category
         });
         
         displayBooks();
