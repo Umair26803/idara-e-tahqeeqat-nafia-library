@@ -451,6 +451,9 @@ main {
     border-radius: 16px;
     margin-top: 10px;
 }
+#bookList {
+    display: grid;
+}
 
 /* ==========================================
    9. RESPONSIVE MEDIA QUERIES
