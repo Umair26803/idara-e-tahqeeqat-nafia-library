@@ -24,6 +24,9 @@ const addBookButton = document.querySelector("#addBookButton");
 const bookMessage = document.querySelector("#bookMessage");
 const bookTitleInput = document.querySelector("#bookTitle");
 const bookList = document.querySelector("#bookList");
+const bookAuthorInput = document.querySelector("#bookAuthor");
+
+console.log(bookAuthorInput);
 
 function displayBooks() {
     bookList.innerHTML = "";
@@ -38,13 +41,15 @@ displayBooks();
 addBookButton.addEventListener("click", function() {
 
     let title = bookTitleInput.value.trim();
+    let author = bookAuthorInput.value.trim();
 
     if (title !== "") {
         books.push({
-    title: title,
-    author: "Unknown",
-    category: "Uncategorized"
-});
+            title: title,
+            author: author,
+            category: "Uncategorized"
+        });
+        
         displayBooks();
         bookMessage.textContent = title + " added to library!";
 
