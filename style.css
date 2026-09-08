@@ -444,6 +444,11 @@ main {
     border: 1px solid var(--border);
     border-radius: 10px;
 }
+.dynamic-card {
+    background: var(--surface);
+    padding: 18px;
+    border: 1px solid var(--border);
+}
 
 /* ==========================================
    9. RESPONSIVE MEDIA QUERIES
