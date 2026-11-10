@@ -1,99 +1,198 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>ادارۂ تحقیقاتِ نافعہ | AbdulHaq Nafi Academy</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
+    <!-- Navigation -->
     <header class="navbar">
+
         <div class="logo-container">
             <div class="academy-seal">
-                <img src="logo.png" alt="AbdulHaq Nafi Academy Logo" class="seal-image">
+                <img
+                    src="logo.png"
+                    alt="AbdulHaq Nafi Academy Logo"
+                    class="seal-image"
+                >
             </div>
+
             <div class="logo" dir="rtl">
                 <span class="logo-urdu">ادارۂـــ تحقيقاتِ نافعـة</span>
-                <span class="logo-english" dir="ltr">AbdulHaq Nafi Academy</span>
+                <span class="logo-english" dir="ltr">
+                    AbdulHaq Nafi Academy
+                </span>
             </div>
         </div>
+
         <nav class="navigation" aria-label="Main Navigation">
             <a href="#" class="active">Dashboard</a>
-            <a href="#">Books</a>
+            <a href="#allBooks">Books</a>
             <a href="#">Members</a>
             <a href="#">Reports</a>
         </nav>
+
     </header>
 
+
     <main>
+
+        <!-- Dashboard Introduction -->
         <section class="hero">
+
             <h1>Welcome to Library Dashboard 👋</h1>
-            <p>Manage books, members, and borrowing from one modern platform.</p>
-            <button class="btn primary-btn" type="button" id="addBookButton">+ Add New Book</button>
-            <input type="text" id="bookTitle" placeholder="Enter book title">
-            <input type="text" id="bookAuthor" placeholder="Enter author name">
-            <input type="text" id="bookISBN" placeholder="Enter ISBN">
-            <select id="bookCategory">
-                <option value="Islamic Studies">Islamic Studies</option>
-                <option value="Self Development">Self Development</option>
-                <option value="Pharmacy">Pharmacy</option>
-                <option value="History">History</option>
-                <option value="Fiction">Fiction</option>
-                <option value="Finance">Finance</option>
-            </select>
-            <p id="bookMessage"></p>
+
+            <p>
+                Manage books, members, and borrowing from one modern platform.
+            </p>
+
+            <!-- Add Book Form -->
+            <form id="bookForm" novalidate>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="bookTitle">Book Title</label>
+                        <input
+                            type="text"
+                            id="bookTitle"
+                            placeholder="Enter book title"
+                            autocomplete="off"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bookAuthor">Author Name</label>
+                        <input
+                            type="text"
+                            id="bookAuthor"
+                            placeholder="Enter author name"
+                            autocomplete="off"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bookISBN">ISBN (Optional)</label>
+                        <input
+                            type="text"
+                            id="bookISBN"
+                            placeholder="Enter ISBN"
+                            autocomplete="off"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bookCategory">Book Category</label>
+                        <select id="bookCategory">
+                            <option value="" selected disabled>
+                                Select a category
+                            </option>
+                            <option value="Islamic Studies">Islamic Studies</option>
+                            <option value="Self Development">Self Development</option>
+                            <option value="Pharmacy">Pharmacy</option>
+                            <option value="History">History</option>
+                            <option value="Fiction">Fiction</option>
+                            <option value="Finance">Finance</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <button class="btn primary-btn" type="submit">
+                    + Add New Book
+                </button>
+
+                <p id="bookMessage" role="status" aria-live="polite"></p>
+
+            </form>
+
         </section>
 
+
+        <!-- Dashboard Statistics -->
         <section class="stats" aria-label="Library Statistics">
+
             <div class="card">
                 <span aria-hidden="true">📚</span>
                 <p>Total Books</p>
                 <strong>2548</strong>
             </div>
+
             <div class="card">
                 <span aria-hidden="true">🟢</span>
                 <p>Available</p>
                 <strong>2106</strong>
             </div>
+
             <div class="card">
                 <span aria-hidden="true">📖</span>
                 <p>Borrowed</p>
                 <strong>386</strong>
             </div>
+
             <div class="card">
                 <span aria-hidden="true">⚠️</span>
                 <p>Overdue</p>
                 <strong>56</strong>
             </div>
+
         </section>
 
+
+        <!-- Search Section -->
         <section class="search-section">
+
             <div class="search-box">
-                <input type="text" placeholder="Search books by title, author or ISBN ..." aria-label="Search books">
-                <button class="search-button" type="button">🔍 Search</button>
+                <input
+                    type="text"
+                    placeholder="Search books by title, author or ISBN..."
+                    aria-label="Search books"
+                >
+
+                <button class="search-button" type="button">
+                    🔍 Search
+                </button>
             </div>
+
         </section>
 
+
+        <!-- Recently Added Books -->
         <section class="recent-books">
+
             <div class="section-header">
                 <h2>Recently Added Books</h2>
-                <a href="#">View All →</a>
+                <a href="#allBooks">View All →</a>
             </div>
-            
+
             <div class="book-grid">
+
                 <div class="book-card">
                     <div class="book-cover" aria-hidden="true">📕</div>
                     <h3>Atomic Habits</h3>
                     <p>James Clear</p>
+
                     <div class="book-meta">
                         <p><strong>ISBN:</strong> 978-0735211292</p>
                         <p><strong>Category:</strong> Self Development</p>
                         <p><strong>Shelf:</strong> A-12</p>
                     </div>
+
                     <span class="status available">Available</span>
                 </div>
 
@@ -101,11 +200,13 @@
                     <div class="book-cover" aria-hidden="true">📘</div>
                     <h3>The 7 Habits of Highly Effective People</h3>
                     <p>Stephen Covey</p>
+
                     <div class="book-meta">
                         <p><strong>ISBN:</strong> 978-0671708638</p>
                         <p><strong>Category:</strong> Self Development</p>
                         <p><strong>Shelf:</strong> A-14</p>
                     </div>
+
                     <span class="status borrowed">Borrowed</span>
                 </div>
 
@@ -113,11 +214,13 @@
                     <div class="book-cover" aria-hidden="true">📗</div>
                     <h3>The Power of Now</h3>
                     <p>Eckhart Tolle</p>
+
                     <div class="book-meta">
                         <p><strong>ISBN:</strong> 978-1577314807</p>
                         <p><strong>Category:</strong> Spirituality</p>
                         <p><strong>Shelf:</strong> B-03</p>
                     </div>
+
                     <span class="status available">Available</span>
                 </div>
 
@@ -125,31 +228,52 @@
                     <div class="book-cover" aria-hidden="true">📙</div>
                     <h3>Deep Work</h3>
                     <p>Cal Newport</p>
+
                     <div class="book-meta">
                         <p><strong>ISBN:</strong> 978-1455586699</p>
                         <p><strong>Category:</strong> Productivity</p>
                         <p><strong>Shelf:</strong> C-01</p>
                     </div>
+
                     <span class="status overdue">Overdue</span>
                 </div>
+
             </div>
-            <div id="bookList"></div>
+
         </section>
 
-        <section class="books-section">
+
+        <!-- All Books -->
+        <section class="books-section" id="allBooks">
+
             <div class="books-header">
+
                 <div>
                     <h2>All Books</h2>
                     <p>Browse and manage books in the library.</p>
                 </div>
-                <button class="add-book-button" type="button">+ Add New Book</button>
+
+                <button
+                    class="add-book-button"
+                    id="secondAddBookButton"
+                    type="button"
+                >
+                    + Add New Book
+                </button>
+
             </div>
-            
+
             <div class="book-filters">
+
                 <div class="search-input">
                     <span aria-hidden="true">🔍</span>
-                    <input type="text" placeholder="Search books by title, author or ISBN..." aria-label="Filter books">
+                    <input
+                        type="text"
+                        placeholder="Search books by title, author or ISBN..."
+                        aria-label="Filter books"
+                    >
                 </div>
+
                 <select class="filter-select" aria-label="Filter by Category">
                     <option selected>All Categories</option>
                     <option>Self Development</option>
@@ -157,16 +281,24 @@
                     <option>Islamic Studies</option>
                     <option>History</option>
                 </select>
+
                 <select class="filter-select" aria-label="Filter by Status">
                     <option selected>All Status</option>
                     <option>Available</option>
                     <option>Borrowed</option>
                     <option>Overdue</option>
                 </select>
+
             </div>
+
+            <!-- JavaScript-generated books appear here -->
+            <div id="bookList" aria-live="polite"></div>
+
         </section>
+
     </main>
 
     <script src="script.js"></script>
+
 </body>
 </html>
