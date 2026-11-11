@@ -51,6 +51,8 @@ const bookTitleInput = document.querySelector("#bookTitle");
 const bookAuthorInput = document.querySelector("#bookAuthor");
 const bookISBNInput = document.querySelector("#bookISBN");
 const bookCategoryInput = document.querySelector("#bookCategory");
+const bookSearchInput = document.querySelector("#bookSearch");
+const categoryFilterSelect = document.querySelector("#categoryFilterSelect");
 
 const bookMessage = document.querySelector("#bookMessage");
 const bookList = document.querySelector("#bookList");
@@ -68,18 +70,93 @@ function showMessage(message, type) {
     bookMessage.className = type;
 }
 
+function populateCategoryFilter() {
+
+    // Get all categories from the books array
+    const categories = books.map(function(book) {
+        return book.category;
+    });
+
+    // Remove duplicate categories
+    const uniqueCategories = [...new Set(categories)];
+
+    // Sort categories alphabetically
+    uniqueCategories.sort();
+
+    // Remember the currently selected category
+    const selectedCategory = categoryFilterSelect.value;
+
+    // Clear existing options
+    categoryFilterSelect.replaceChildren();
+
+    // Create the default option
+    const allOption = document.createElement("option");
+    allOption.value = "all";
+    allOption.textContent = "All Categories";
+
+    categoryFilterSelect.appendChild(allOption);
+
+    // Create an option for each unique category
+    for (let category of uniqueCategories) {
+
+        const option = document.createElement("option");
+
+        option.value = category;
+        option.textContent = category;
+
+        categoryFilterSelect.appendChild(option);
+    }
+
+    // Restore the selected category if it still exists
+    if (
+        selectedCategory === "all" ||
+        uniqueCategories.includes(selectedCategory)
+    ) {
+        categoryFilterSelect.value = selectedCategory;
+    } else {
+        categoryFilterSelect.value = "all";
+    }
+}
+
 
 /* =========================================
    4. DISPLAY BOOKS
 ========================================= */
 
-function displayBooks() {
+function displayBooks(searchTerm = "", selectedCategory = "all") {
 
     // Clear the previous dynamic book cards
     bookList.replaceChildren();
+    const normalizedSearch = searchTerm.toLowerCase().trim();
 
+    const filteredBooks = books.filter(function(book) {
+
+        const matchesSearch =
+            book.title.toLowerCase().includes(normalizedSearch) ||
+            book.author.toLowerCase().includes(normalizedSearch) ||
+            book.isbn.toLowerCase().includes(normalizedSearch);
+    
+        const matchesCategory =
+            selectedCategory === "all" ||
+            book.category === selectedCategory;
+    
+        return matchesSearch && matchesCategory;
+    });
+
+    if (filteredBooks.length === 0) {
+        const message = document.createElement("p");
+        message.textContent = "No books found.";
+        bookList.appendChild(message);
+        return;
+    }
     // Create a card for every book
-    for (let book of books) {
+    for (let book of filteredBooks) {
+        if (filteredBooks.length === 0) {
+            const message = document.createElement("p");
+            message.textContent = "No books found.";
+            bookList.appendChild(message);
+            return;
+        }
 
         // Main card
         const card = document.createElement("div");
@@ -208,9 +285,13 @@ bookForm.addEventListener("submit", function(event) {
     };
 
     books.push(newBook);
+
     localStorage.setItem("books", JSON.stringify(books));
     
-    displayBooks();
+    displayBooks(
+        bookSearchInput.value,
+        categoryFilterSelect.value
+    );
     showMessage(title + " added to the library successfully!", "success");
     bookForm.reset();
 
@@ -229,10 +310,29 @@ secondAddBookButton.addEventListener("click", function() {
     bookTitleInput.focus();
 
 });
-
-
 /* =========================================
-   8. INITIAL PAGE DISPLAY
+   8. LIVE BOOK SEARCH
 ========================================= */
 
-displayBooks();
+bookSearchInput.addEventListener("input", function() {
+    displayBooks(
+        bookSearchInput.value,
+        categoryFilterSelect.value
+    );
+});
+
+categoryFilter.addEventListener("change", function() {
+    displayBooks(
+        bookSearchInput.value,
+        categoryFilterSelect.value
+    );
+});
+
+/* =========================================
+   9. INITIAL PAGE DISPLAY
+========================================= */
+
+displayBooks(
+    bookSearchInput.value,
+    categoryFilter.value
+);

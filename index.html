@@ -160,6 +160,7 @@
             <div class="search-box">
                 <input
                     type="text"
+                    id="bookSearch"
                     placeholder="Search books by title, author or ISBN..."
                     aria-label="Search books"
                 >
@@ -273,6 +274,12 @@
                         aria-label="Filter books"
                     >
                 </div>
+                <select id="categoryFilterSelect">
+                    <option value="all">All Categories</option>
+                    <option value="Islamic Studies">Islamic Studies</option>
+                    <option value="Fiction">Fiction</option>
+                    <option value="Finance">Finance</option>
+                </select>
 
                 <select class="filter-select" aria-label="Filter by Category">
                     <option selected>All Categories</option>
